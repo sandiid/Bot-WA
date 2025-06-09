@@ -1,1 +1,8 @@
+{
+  "build": { "dockerfilePath": "Dockerfile" },
+  "deploy": {
+    "restart_on_build": true,
+    "restart_on_env_change": true
+  }
+}
 
