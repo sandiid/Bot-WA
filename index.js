@@ -19,7 +19,17 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.body === '!ping') {
     msg.reply('pong 🏓');
-  }
+  }else if(msg.body === '!help') {
+    msg.reply(
+  `📌 *Menu Bot WA:*\n\n` +
+  `1. *!ping* – Cek apakah bot hidup\n` +
+  `2. *!help* – Tampilkan menu bantuan\n` +
+  `3. *!ai <prompt>* – Tanya AI seperti ChatGPT\n\n` +
+  `_Bot by Sandi_`
+);
+  }else if(msg.body.startWith("!datacharger "){
+		const chargeno = msg.body.slice(13);
+   } 
 });
 
 client.initialize();
