@@ -9,10 +9,7 @@ const client = new Client({
 });
 
 client.on('qr', qr => {
-  qrcode.generate(qr, { small: true });
-  qrcode.toDataURL(qr, (err, url) => {
     console.log('🔗 Scan QR ini: https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(qr));
-  });
 });
 
 client.on('ready', () => {
