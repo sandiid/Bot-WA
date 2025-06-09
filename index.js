@@ -1,5 +1,5 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
+const qrcode = require('qrcode');
 
 const client = new Client({
   authStrategy: new LocalAuth(),
@@ -9,7 +9,9 @@ const client = new Client({
 });
 
 client.on('qr', qr => {
-  qrcode.generate(qr, { small: true });
+  qrcode.toDataURL(qr, (err, url) => {
+    console.log('🔗 Scan QR ini: https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(qr));
+  });
 });
 
 client.on('ready', () => {
