@@ -27,7 +27,7 @@ client.on('message', msg => {
   `3. *!ai <prompt>* – Tanya AI seperti ChatGPT\n\n` +
   `_Bot by Sandi_`
 );
-  }else if(msg.body.startWith("!datacharger "){
+  }else if(msg.body.startWith("!datacharger ")) {
 		const chargeno = msg.body.slice(13);
    } 
 });
