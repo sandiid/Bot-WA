@@ -1,6 +1,6 @@
 const { Client } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
-const { loadSession, saveSession } = require('./firebase');
+const { loadSession, saveSession } = require('./firebaseconfig');
 
 (async () => {
   const sessionData = await loadSession();
