@@ -1,5 +1,5 @@
 const { initializeApp } = require('firebase/app');
-const { getFirestore } = require('firebase/firestore');
+const { getDatabase, ref, get, set } = require('firebase/database');
 
 const firebaseConfig = {
   apiKey: "AIzaSyDHllm5mHiQd7XQL5IM2ppYgd3PBLT-HQk",
@@ -13,6 +13,17 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = getDatabase(app);
 
-module.exports = { db };
+async function loadSession() {
+  const snapshot = await get(ref(db, 'session'));
+  return snapshot.exists() ? snapshot.val() : null;
+}
+
+async function saveSession(session) {
+  await set(ref(db, 'session'), session);
+}
+
+module.exports = {
+  loadSession,
+  saveSession} ;
